@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { HeaderComponent } from "./header/header.component";
+import { ProgramsComponent } from "./programs/programs.component";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HeaderComponent, ProgramsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'initial-project';
+  enteredValue = signal<string>('');
+
+  onSubmit() {
+    console.log(this.enteredValue());
+  }
 }
