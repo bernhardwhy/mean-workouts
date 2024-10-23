@@ -23,6 +23,7 @@ export class ProgramsComponent implements OnInit {
     const subscription = this.programService.loadPrograms().subscribe({
       complete: () => {
         console.log("subscription done");
+        //handle loading state here
       },
       error: (error) => {
         console.log(error);
