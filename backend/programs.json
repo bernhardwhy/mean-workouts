@@ -1,12 +1,167 @@
 [
     {
-      "id": "1234015",
+      "id": "234015",
       "title": "muscle builder program weights only",
-      "workouts": ["611297"]
+      "weeks": [
+        {
+          "id": "1",
+          "title": "Week 1",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            },
+            {
+              "id": "000001",
+              "isRest": false,
+              "title": "rest"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "title": "Week 2",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "title": "Week 3",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "title": "Week 4",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "12340151",
-      "title": "muscle builder program weights only",
-      "workouts": ["611297"]
+      "id": "123456",
+      "title": "zweites Programm",
+      "weeks": [
+        {
+          "id": "1",
+          "title": "Week 1",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            },
+            {
+              "id": "000001",
+              "isRest": false,
+              "title": "rest"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "title": "Week 2",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "title": "Week 3",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "title": "Week 4",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "645321",
+      "title": "ganz arges program",
+      "weeks": [
+        {
+          "id": "1",
+          "title": "Week 1",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            },
+            {
+              "id": "000001",
+              "isRest": false,
+              "title": "rest"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "title": "Week 2",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "title": "Week 3",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "title": "Week 4",
+          "workouts": [
+            {
+              "id": "611297",
+              "isRest": false,
+              "title": "chest"
+            }
+          ]
+        }
+      ]
     }
   ]

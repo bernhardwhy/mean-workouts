@@ -2,7 +2,7 @@ import { inject, Injectable, OnInit, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Program } from './program.model';
-import { tap } from 'rxjs';
+import { map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +27,9 @@ export class ProgramService {
   addWorkoutLog(programId: string, weight: number) {
     const workoutLog = { programId, weight };
     this.httpClient.post('http://localhost:3000/api/workout-log', workoutLog)
-    .subscribe(responseData => {
-      console.log(responseData);
-    });
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
   }
 
   private fetchPrograms() {

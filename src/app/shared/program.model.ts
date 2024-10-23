@@ -1,7 +1,7 @@
 export interface Program {
     id: string,
     title: string,
-    workouts: string[],
+    weeks: Week[],
 }
 
 export interface Workout {
@@ -32,3 +32,16 @@ export interface Workout {
         }
     ]
 }
+
+
+export interface Week {
+        id: string,
+        title: string,
+        workouts: [
+            {
+                id: string,
+                title: string,
+                isRest: boolean,
+            }
+        ]
+      }

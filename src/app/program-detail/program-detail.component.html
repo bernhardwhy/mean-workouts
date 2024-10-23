@@ -1,4 +1,16 @@
 <p>Showing content  for program {{programId()}}</p>
+
+<mat-selection-list role="list">
+    @for (week of program()?.weeks; track week.id) {
+        <p>{{ week.title }}</p>
+        <mat-selection-list>
+            @for (workout of week.workouts; track workout) {
+                <mat-list-item role="listitem">{{ workout.title }}</mat-list-item>
+            }
+            </mat-selection-list>
+        }
+    </mat-selection-list>
+
 <button (click)="onAddWeightLog()" mat-stroked-button>
     add weight to exercise
 </button>
