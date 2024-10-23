@@ -1,15 +1,19 @@
 <p>Showing content  for program {{programId()}}</p>
 
-<mat-selection-list role="list">
+<mat-list role="list">
     @for (week of program()?.weeks; track week.id) {
         <p>{{ week.title }}</p>
         <mat-selection-list>
-            @for (workout of week.workouts; track workout) {
-                <mat-list-item role="listitem">{{ workout.title }}</mat-list-item>
+            @for (workout of week.workouts; track workout.id) {
+                @if (!workout.isRest) {
+                    <mat-list-item [routerLink]="['/workouts/' + workout.id]"  role="listitem">{{ workout.title }}</mat-list-item>
+                } @else {
+                    <mat-list-item disabled="true" role="listitem">{{ workout.title }}</mat-list-item>
+                }
             }
             </mat-selection-list>
         }
-    </mat-selection-list>
+    </mat-list>
 
 <button (click)="onAddWeightLog()" mat-stroked-button>
     add weight to exercise

@@ -22,7 +22,6 @@ export class ProgramsComponent implements OnInit {
   ngOnInit() {
     const subscription = this.programService.loadPrograms().subscribe({
       complete: () => {
-        console.log("subscription done", this.allPrograms());
         //handle loading state here
       },
       error: (error) => {

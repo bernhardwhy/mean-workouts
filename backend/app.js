@@ -1,5 +1,6 @@
 const express = require('express');
 const PROGRAMS = require('./programs.json');
+const WORKOUTS = require('./workouts.json');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -27,6 +28,14 @@ app.get('/api/programs', (req, res, next) => {
     res.status(200).json({
         message: 'Programs fetched successfully!',
         programs: programs
+    });
+});
+
+app.get('/api/workouts', (req, res, next) => {
+    const workouts = WORKOUTS;
+    res.status(200).json({
+        message: 'Workouts fetched successfully!',
+        workouts: workouts
     });
 });
 

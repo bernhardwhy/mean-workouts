@@ -4,12 +4,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 
 import { ProgramService } from '../shared/program.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-program-detail',
   standalone: true,
-  imports: [MatButtonModule, MatListModule],
+  imports: [MatButtonModule, MatListModule, RouterLink],
   templateUrl: './program-detail.component.html',
   styleUrl: './program-detail.component.css'
 })
@@ -27,7 +28,6 @@ export class ProgramDetailComponent  implements OnInit {
   }
 
   onAddWeightLog() {
-    console.log('Add Weight Log');
     this.programService.addWorkoutLog(this.programId(), 100);
   }
 }

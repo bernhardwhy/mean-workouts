@@ -14,7 +14,7 @@
             },
             {
               "id": "000001",
-              "isRest": false,
+              "isRest": true,
               "title": "rest"
             }
           ]
@@ -69,7 +69,7 @@
             },
             {
               "id": "000001",
-              "isRest": false,
+              "isRest": true,
               "title": "rest"
             }
           ]
@@ -124,7 +124,7 @@
             },
             {
               "id": "000001",
-              "isRest": false,
+              "isRest": true,
               "title": "rest"
             }
           ]
