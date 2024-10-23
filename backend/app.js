@@ -14,15 +14,15 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/api/workout-log', (req, res, next) => {
-    const workoutLog = reg.body;
+app.post('/api/workout-log', (req, res, next) => {
+    const workoutLog = req.body;
     console.log("WORKOUT LOG: ",workoutLog);
     res.status(201).json({
         message: 'Workout log added successfully!'
     });
 })
 
-app.use('/api/programs', (req, res, next) => {
+app.get('/api/programs', (req, res, next) => {
     const programs = PROGRAMS;
     res.status(200).json({
         message: 'Programs fetched successfully!',
