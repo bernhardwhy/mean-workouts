@@ -13,10 +13,6 @@ export class ProgramService {
   allPrograms = this.programs.asReadonly();
 
   loadPrograms() {
-    // this.fetchPrograms().subscribe(postData => {
-    //   console.log(postData);
-    //   this.programs.set(postData.programs);
-    // });
     return this.fetchPrograms()
       .pipe(
         tap({
@@ -26,7 +22,6 @@ export class ProgramService {
           }
         })
       )
-    // this.programs.set(PROGRAMS);
   }
 
   addWorkoutLog(programId: string, weight: number) {
