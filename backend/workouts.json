@@ -90,5 +90,97 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "611300",
+        "title": "Back",
+        "exercises": [
+            {
+                "warmUp": [
+                    {
+                        "id": "w1",
+                        "title": "Jumping Jacks",
+                        "sets": 3,
+                        "reps": null,
+                        "duration": 40,
+                        "rest": 30
+                    },
+                    {
+                        "id": "w2",
+                        "title": "Plank Knees to Elbows",
+                        "sets": 3,
+                        "reps": 15,
+                        "duration": null,
+                        "rest": 30
+                    },
+                    {
+                        "id": "w3",
+                        "title": "Reverse Wide Plank Hold",
+                        "sets": 3,
+                        "reps": 10,
+                        "duration": null,
+                        "rest": 30
+                    },
+                    {
+                        "id": "w4",
+                        "title": "Dumbbell Renegade rows",
+                        "sets": 3,
+                        "reps": 12,
+                        "duration": null,
+                        "rest": 30
+                    }
+                ],
+                "main": [
+                    {
+                        "id": "m1",
+                        "title": "Bent over Rows - Barbell",
+                        "sets": 4,
+                        "reps": 12,
+                        "duration": null,
+                        "rest": 45
+                    },
+                    {
+                        "id": "m2",
+                        "title": "Rows neutral Grip",
+                        "sets": 4,
+                        "reps": 12,
+                        "duration": null,
+                        "rest": 45
+                    },
+                    {
+                        "id": "m3",
+                        "title": "Bent over Rows Deadlift - Dumbbell",
+                        "sets": 4,
+                        "reps": 12,
+                        "duration": null,
+                        "rest": 45
+                    },
+                    {
+                        "id": "m4",
+                        "title": "Deadlifts",
+                        "sets": 4,
+                        "reps": 12,
+                        "duration": null,
+                        "rest": 45
+                    },
+                    {
+                        "id": "m5",
+                        "title": "Dumbbell Laying Ski's",
+                        "sets": 4,
+                        "reps": 12,
+                        "duration": null,
+                        "rest": 45
+                    },
+                    {
+                        "id": "m6",
+                        "title": "Single Arm Rows - Dumbbell",
+                        "sets": 4,
+                        "reps": 10,
+                        "duration": null,
+                        "rest": 45
+                    }
+                ]
+            }
+        ]
     }
 ]

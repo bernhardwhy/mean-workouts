@@ -49,6 +49,11 @@
               "id": "611297",
               "isRest": false,
               "title": "chest"
+            },
+            {
+              "id": "611300",
+              "isRest": false,
+              "title": "Back"
             }
           ]
         }

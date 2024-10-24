@@ -1,5 +1,12 @@
-<mat-selection-list role="list">
-@for (program of allPrograms(); track program.id) {
-        <mat-list-item [routerLink]="['./' + program.id]" role="listitem">{{ program.title }}</mat-list-item>
+<mat-card appearance="outlined">
+  <mat-selection-list role="list">
+    @for (program of allPrograms(); track program.id) {
+    <mat-card-content>
+      <mat-list-item [routerLink]="['./' + program.id]" role="listitem">{{
+        program.title
+    }}</mat-list-item>
+    <mat-divider />
+    </mat-card-content>
     }
-</mat-selection-list>
+  </mat-selection-list>
+</mat-card>

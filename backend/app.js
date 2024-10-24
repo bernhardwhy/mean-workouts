@@ -3,6 +3,8 @@ const PROGRAMS = require('./programs.json');
 const WORKOUTS = require('./workouts.json');
 const bodyParser = require('body-parser');
 
+const workoutLog = require('./models/program');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -16,7 +18,11 @@ app.use((req, res, next) => {
 });
 
 app.post('/api/workout-log', (req, res, next) => {
-    const workoutLog = req.body;
+    const workoutLog = new workoutLog({
+        id: req.body.id,
+        title: req.body.title,
+        date: req.body.date,
+    });
     console.log("WORKOUT LOG: ",workoutLog);
     res.status(201).json({
         message: 'Workout log added successfully!'
