@@ -2,13 +2,25 @@ const express = require('express');
 const PROGRAMS = require('./programs.json');
 const WORKOUTS = require('./workouts.json');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
-const workoutLog = require('./models/program');
+const WorkoutLog = require('./models/program');
 
 const app = express();
 
+const mgUrl = "mongodb+srv://bernhardwhy:x4SUbMdxqI5gDLXw@mean-workout.pxedv.mongodb.net/?retryWrites=true&w=majority&appName=mean-workout";
+
+mongoose.connect(mgUrl)
+    .then(() => {
+        console.log('Connected to database!');
+    })
+    .catch(() => {
+        console.log('Connection failed!');
+    });
+
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,12 +30,13 @@ app.use((req, res, next) => {
 });
 
 app.post('/api/workout-log', (req, res, next) => {
-    const workoutLog = new workoutLog({
-        id: req.body.id,
-        title: req.body.title,
+    const workoutLog = new WorkoutLog({
         date: req.body.date,
+        workoutId: req.body.programId,
+        weight: req.body.weight,
     });
-    console.log("WORKOUT LOG: ",workoutLog);
+    console.log(workoutLog);
+    workoutLog.save();
     res.status(201).json({
         message: 'Workout log added successfully!'
     });
@@ -43,6 +56,16 @@ app.get('/api/workouts', (req, res, next) => {
         message: 'Workouts fetched successfully!',
         workouts: workouts
     });
+});
+
+app.get('/api/workout-logs', (req, res, next) => {
+    WorkoutLog.find()
+        .then(documents => {
+            res.status(200).json({
+                message: 'Workout LOGS fetched successfully!',
+                workoutLogs: documents
+            });
+        });
 });
 
 module.exports = app;

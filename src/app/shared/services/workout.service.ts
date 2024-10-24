@@ -22,14 +22,6 @@ export class WorkoutService {
       )
   }
 
-  addWorkoutLog(programId: string, weight: number) {
-    const workoutLog = { programId, weight };
-    this.httpClient.post('http://localhost:3000/api/workout-log', workoutLog)
-      .subscribe(responseData => {
-        console.log(responseData);
-      });
-  }
-
   private fetchPrograms() {
     return this.httpClient.get<{ message: string, workouts: Workout[] }>('http://localhost:3000/api/workouts');
   }

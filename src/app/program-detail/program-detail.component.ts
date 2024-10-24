@@ -18,6 +18,7 @@ export class ProgramDetailComponent  implements OnInit {
   programId = input<string>('');
   programService = inject(ProgramService);
   allPrograms = this.programService.allPrograms;
+  allWorkoutLogs = this.programService.allWorkoutLogs;
   program = computed(() => {
     return this.allPrograms().find(p => p.id === this.programId());
   });
@@ -25,6 +26,7 @@ export class ProgramDetailComponent  implements OnInit {
 
   ngOnInit(): void {
     this.programService.loadPrograms().subscribe();
+    this.programService.loadWorkoutLogs().subscribe();
   }
 
   onAddWeightLog() {
@@ -32,4 +34,6 @@ export class ProgramDetailComponent  implements OnInit {
     let dateString = date.toString();
     this.programService.addWorkoutLog(this.programId(), 100, dateString);
   }
+
+
 }

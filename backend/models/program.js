@@ -10,7 +10,6 @@ module.exports = mongoose.model('WorkoutLog', workoutLogSchema);
 
 
 
-// const uri = "mongodb+srv://bernhardwhy:x4SUbMdxqI5gDLXw@mean-workout.pxedv.mongodb.net/?retryWrites=true&w=majority&appName=mean-workout";
 // const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 // async function run() {
 //   try {

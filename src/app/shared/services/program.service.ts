@@ -11,6 +11,8 @@ export class ProgramService {
   private httpClient = inject(HttpClient);
   private programs = signal<Program[]>([]);
   allPrograms = this.programs.asReadonly();
+  private workoutLogs = signal<{programId: string, weight: number, date: string}[]>([]);
+  allWorkoutLogs = this.workoutLogs.asReadonly();
 
   loadPrograms() {
     return this.fetchPrograms()
@@ -32,7 +34,23 @@ export class ProgramService {
       });
   }
 
+
+  loadWorkoutLogs() {
+    return this.fetchWorkoutLogs()
+      .pipe(
+        tap({
+          next: (postData) => {
+            console.log(postData);
+            this.workoutLogs.set(postData.workoutLogs)
+          }
+        })
+      )
+  }
+
   private fetchPrograms() {
     return this.httpClient.get<{ message: string, programs: Program[] }>('http://localhost:3000/api/programs');
+  }
+  private fetchWorkoutLogs() {
+    return this.httpClient.get<{ message: string, workoutLogs: {programId: string, weight: number, date: string}[] }>('http://localhost:3000/api/workout-logs');
   }
 }
