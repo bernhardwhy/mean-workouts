@@ -1,41 +1,61 @@
 const mongoose = require('mongoose');
 
-const workoutLogSchema = mongoose.Schema({
+const WorkoutLogSchema = mongoose.Schema({
     workoutId: { type: String, required: true },
     weight: { type: Number, required: true },
     date: { type: String, required: true },
 })
 
-const workoutSchema = mongoose.Schema({
+const WorkoutOverviewSchema = mongoose.Schema({
     id: { type: String, required: true },
     title: { type: String, required: true },
     isRest: { type: Boolean, required: true },
 });
 
-const weekSchema = mongoose.Schema({
+const WeekSchema = mongoose.Schema({
     id: { type: String, required: true },
     title: { type: String, required: true },
     workouts: [{
         id: { type: String, required: true },
         title: { type: String, required: true },
-        workouts: [workoutSchema],
+        workouts: [WorkoutOverviewSchema],
     }],
 });
 
 
-const programSchema = mongoose.Schema({
+const ProgramSchema = mongoose.Schema({
     id: { type: String, required: true },
     title: { type: String, required: true },
-    weeks: [weekSchema],
+    weeks: [WeekSchema],
+});
+
+const ExerciseSchema = mongoose.Schema({
+    id: { type: String, required: true },
+    title: { type: String, required: true },
+    sets: { type: Number, required: true },
+    reps: { type: Number, required: true },
+    duration: { type: Number, required: true },
+    rest: { type: Number, required: true },
+});
+
+const WorkoutSchema = mongoose.Schema({
+    id: { type: String, required: true },
+    title: { type: String, required: true },
+    exercises: [{
+        warmUp: [ExerciseSchema],
+        main: [ExerciseSchema],
+    }],
 });
 
 
-const Program = mongoose.model('Program', programSchema);
-const Week = mongoose.model('Week', weekSchema);
-const WorkoutLog = mongoose.model('WorkoutLog', workoutLogSchema);
-const Workout = mongoose.model('Workout', workoutSchema);
 
-module.exports = { Program, Week, WorkoutLog, Workout };
+
+
+const Program = mongoose.model('Program', ProgramSchema);
+const WorkoutLog = mongoose.model('WorkoutLog', WorkoutLogSchema);
+const Workout = mongoose.model('Workout', WorkoutSchema);
+
+module.exports = { Program, WorkoutLog, Workout };
 
 
 
