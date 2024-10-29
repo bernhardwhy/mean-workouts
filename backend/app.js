@@ -4,7 +4,7 @@ const WORKOUTS = require('./workouts.json');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const WorkoutLog = require('./models/program');
+const {WorkoutLog, Program} = require('./models/program');
 
 const app = express();
 
@@ -44,10 +44,20 @@ app.post('/api/workout-log', (req, res, next) => {
 
 app.get('/api/programs', (req, res, next) => {
     const programs = PROGRAMS;
-    res.status(200).json({
-        message: 'Programs fetched successfully!',
-        programs: programs
-    });
+    Program.find()
+        .then(documents => {
+            console.log("FETCHED PROGRAMS", documents);
+            res.status(200).json({
+                
+                message: 'Programs fetched successfully!',
+                programs: documents
+            });
+        });
+    
+    // res.status(200).json({
+    //     message: 'Programs fetched successfully!',
+    //     programs: programs
+    // });
 });
 
 app.get('/api/workouts', (req, res, next) => {

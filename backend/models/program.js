@@ -6,7 +6,36 @@ const workoutLogSchema = mongoose.Schema({
     date: { type: String, required: true },
 })
 
-module.exports = mongoose.model('WorkoutLog', workoutLogSchema);
+const workoutSchema = mongoose.Schema({
+    id: { type: String, required: true },
+    title: { type: String, required: true },
+    isRest: { type: Boolean, required: true },
+});
+
+const weekSchema = mongoose.Schema({
+    id: { type: String, required: true },
+    title: { type: String, required: true },
+    workouts: [{
+        id: { type: String, required: true },
+        title: { type: String, required: true },
+        workouts: [workoutSchema],
+    }],
+});
+
+
+const programSchema = mongoose.Schema({
+    id: { type: String, required: true },
+    title: { type: String, required: true },
+    weeks: [weekSchema],
+});
+
+
+const Program = mongoose.model('Program', programSchema);
+const Week = mongoose.model('Week', weekSchema);
+const WorkoutLog = mongoose.model('WorkoutLog', workoutLogSchema);
+const Workout = mongoose.model('Workout', workoutSchema);
+
+module.exports = { Program, Week, WorkoutLog, Workout };
 
 
 

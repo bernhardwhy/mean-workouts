@@ -29,3 +29,22 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 - add form with dialog to enter exercise weight and rep
+
+
+## startup
+Server: npm run start:server
+
+if request to mongo db is not working go to mongo db console and add current ip adress
+https://cloud.mongodb.com/v2/6719fa9188a3032342123427#/overview?connectCluster=mean-workout
+
+
+to access data via CLI: 
+with terminal head to mongosh location (web/mongosh/bin)
+
+./mongosh "mongodb+srv://mean-workout.pxedv.mongodb.net/" --apiVersion 1 --username bernhardwhy
+
+show collections
+db.<collection>.find()
+
+
+
