@@ -5,6 +5,7 @@ import { ProgramService } from '../shared/services/program.service';
 import { MatListModule } from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import { Program } from '../shared/program.model';
 
 @Component({
   selector: 'app-programs',
@@ -22,15 +23,7 @@ export class ProgramsComponent implements OnInit {
 
 
   ngOnInit() {
-    const subscription = this.programService.loadPrograms().subscribe({
-      complete: () => {
-        //handle loading state here
-      },
-      error: (error) => {
-        console.log(error);
-        this.errorMessage.set(error.message);
-      }
-    })
+    const subscription = this.programService.loadPrograms().subscribe();
 
     this.destroyRef.onDestroy(() => {
       subscription.unsubscribe();

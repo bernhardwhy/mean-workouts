@@ -25,7 +25,9 @@ export class ProgramDetailComponent  implements OnInit {
   
 
   ngOnInit(): void {
-    this.programService.loadPrograms().subscribe();
+    if (this.allPrograms().length === 0) {
+      this.programService.loadPrograms().subscribe();
+    }
     this.programService.loadWorkoutLogs().subscribe();
   }
 

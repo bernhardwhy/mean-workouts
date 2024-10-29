@@ -16,6 +16,7 @@ export class WorkoutService {
       .pipe(
         tap({
           next: (postData) => {
+            console.log(postData);
             this.workouts.set(postData.workouts);
           }
         })

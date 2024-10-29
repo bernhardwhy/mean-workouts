@@ -19,6 +19,7 @@ export class ProgramService {
       .pipe(
         tap({
           next: (postData) => {
+            console.log(postData);
             this.programs.set(postData.programs)
           }
         })
