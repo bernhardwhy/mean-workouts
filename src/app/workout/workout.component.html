@@ -24,43 +24,50 @@
             </mat-card>
         }
     </mat-selection-list> -->
-
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-
-  <div class="relative flex flex-col rounded-lg bg-white shadow-sm border border-slate-200">
-    <nav class="flex min-w-[240px] flex-col gap-1 p-1.5">
-      <div
-        role="button"
-        class="text-slate-800 flex w-full items-center rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
-      >
-        Inbox
+<div class="mt-10 ml-5 mr-5">
+  <p class="font-mono text-l tracking wide">{{ workout()?.title }}</p>
+  @for (exercise of workout()?.exercises; track exercise) {
+    <p class="text-xl font-mono">Warm-up</p>
+    @for (w of exercise.warmUp; track w.id + $index) {
+      <div class="font-mono divide-y">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
+          <div class="md:flex">
+            <div class="md:flex-shrink-0">
+              <img class="h-48 w-full object-cover md:w-48" [src]="w.image" alt="Event image"/>
+            </div>
+            <div class="p-8">
+              <p class="block mt-1 text-lg leading-tight font-medium text-black">
+                {{w.title}} 
+              </p>
+              <p class="mt-2 text-gray-500">
+                {{w.sets}} x {{w.duration ? w.duration + "s" : w.reps + " reps"}}
+              </p>
+              <p class="mt-2 text-gray-500">{{w.rest}}sec break</p>
+            </div>
+          </div>
+        </div>
       </div>
-        <div
-        role="button"
-          class="text-slate-800  flex w-full items-center rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
-        >
-          Trash
+    }
+    <p class="text-xl font-mono">Workout</p>
+    @for (main of exercise.main; track main.id + $index) {
+      <div class="font-mono divide-y">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
+          <div class="md:flex">
+            <div class="md:flex-shrink-0">
+              <img class="h-48 w-full object-cover md:w-48" [src]="main.image" alt="Event image"/>
+            </div>
+            <div class="p-8">
+              <p class="block mt-1 text-lg leading-tight font-medium text-black">
+                {{main.title}} 
+              </p>
+              <p class="mt-2 text-gray-500">
+                {{main.sets}} x {{main.duration ? main.duration + "s" : main.reps + " reps"}}
+              </p>
+              <p class="mt-2 text-gray-500">{{main.rest}}sec break</p>
+            </div>
+          </div>
         </div>
-        <div
-          role="button"
-          class="text-slate-800 flex w-full items-center rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
-        >
-          Settings
-        </div>
-    </nav>
-  </div>
-
-  <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
-    <div class="md:flex">
-        <div class="md:flex-shrink-0">
-        <img class="h-48 w-full object-cover md:w-48" src="https://randomuser.me/api/portraits/men/1.jpg" alt="Event image">
-        </div>
-        <div class="p-8">
-        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Event Name</div>
-        <p class="block mt-1 text-lg leading-tight font-medium text-black">Event Description</p>
-        <p class="mt-2 text-gray-500">Event Details...</p>
-        </div>
-    </div>
-    </div>
+      </div>
+    }
+  }
+</div>

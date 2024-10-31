@@ -19,6 +19,7 @@ export interface Workout {
                     reps: number,
                     duration: number,
                     rest: number,
+                    image: string,
                 }
             ],
             main: [
@@ -29,6 +30,7 @@ export interface Workout {
                     reps: number,
                     duration: number,
                     rest: number,
+                    image: string,
                 }
             ]
         }
