@@ -4,7 +4,7 @@
     @for (week of program()?.weeks; track week.id) {
         <p>{{ week.title }}</p>
         <mat-selection-list>
-            @for (workout of week.workouts; track workout.id) {
+            @for (workout of week.workouts; track workout.id + $index) {
                 @if (!workout.isRest) {
                     <mat-list-item [routerLink]="['/workouts/' + workout.id]"  role="listitem">{{ workout.title }}</mat-list-item>
                 } @else {

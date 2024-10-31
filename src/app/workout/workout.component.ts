@@ -4,13 +4,15 @@ import { WorkoutService } from '../shared/services/workout.service';
 import { MatListModule } from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
 @Component({
   selector: 'app-workout',
   standalone: true,
-  imports: [MatListModule, MatDividerModule, MatCardModule],
+  imports: [MatListModule, MatDividerModule, MatCardModule, MatGridListModule, MatButtonModule],
   templateUrl: './workout.component.html',
   styleUrl: './workout.component.css'
 })
