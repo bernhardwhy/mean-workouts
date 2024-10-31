@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 
 import { ProgramService } from '../shared/services/program.service';
+import { WorkoutService } from '../shared/services/workout.service';
 import { RouterLink } from '@angular/router';
 
 
@@ -17,8 +18,9 @@ import { RouterLink } from '@angular/router';
 export class ProgramDetailComponent  implements OnInit {
   programId = input<string>('');
   programService = inject(ProgramService);
+  workoutService = inject(WorkoutService);
   allPrograms = this.programService.allPrograms;
-  allWorkoutLogs = this.programService.allWorkoutLogs;
+  allWorkoutLogs = this.workoutService.allWorkoutLogs;
   program = computed(() => {
     return this.allPrograms().find(p => p.id === this.programId());
   });
@@ -28,13 +30,13 @@ export class ProgramDetailComponent  implements OnInit {
     if (this.allPrograms().length === 0) {
       this.programService.loadPrograms().subscribe();
     }
-    this.programService.loadWorkoutLogs().subscribe();
+    this.workoutService.loadWorkoutLogs().subscribe();
   }
 
   onAddWeightLog() {
     let date = new Date();
     let dateString = date.toString();
-    this.programService.addWorkoutLog(this.programId(), 100, dateString);
+    this.workoutService.addWorkoutLog(this.programId(), 100, dateString);
   }
 
 

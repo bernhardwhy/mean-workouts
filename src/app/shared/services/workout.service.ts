@@ -10,6 +10,8 @@ export class WorkoutService {
   private httpClient = inject(HttpClient);
   private workouts = signal<Workout[]>([]);
   allWorkouts = this.workouts.asReadonly();
+  private workoutLogs = signal<{programId: string, weight: number, date: string}[]>([]);
+  allWorkoutLogs = this.workoutLogs.asReadonly();
 
   loadWorkouts() {
     return this.fetchPrograms()
@@ -23,7 +25,32 @@ export class WorkoutService {
       )
   }
 
+  loadWorkoutLogs() {
+    return this.fetchWorkoutLogs()
+      .pipe(
+        tap({
+          next: (postData) => {
+            console.log(postData);
+            this.workoutLogs.set(postData.workoutLogs)
+          }
+        })
+      )
+  }
+
+  addWorkoutLog(programId: string, weight: number, date: string) {
+    const workoutLog = { programId, weight, date };
+  
+    this.httpClient.post('http://localhost:3000/api/workout-log', workoutLog)
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
+  }
+
   private fetchPrograms() {
     return this.httpClient.get<{ message: string, workouts: Workout[] }>('http://localhost:3000/api/workouts');
+  }
+
+  private fetchWorkoutLogs() {
+    return this.httpClient.get<{ message: string, workoutLogs: {programId: string, weight: number, date: string}[] }>('http://localhost:3000/api/workout-logs');
   }
 }

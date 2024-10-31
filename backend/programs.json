@@ -8,9 +8,34 @@
           "title": "Week 1",
           "workouts": [
             {
-              "id": "611297",
+              "id": "606054",
               "isRest": false,
-              "title": "chest"
+              "title": "Chest & Triceps"
+            },
+            {
+              "id": "606056",
+              "isRest": false,
+              "title": "Leg Workout"
+            },
+            {
+              "id": "606055",
+              "isRest": false,
+              "title": "Back & Biceps"
+            },
+            {
+              "id": "606059",
+              "isRest": false,
+              "title": "Shoulders"
+            },
+            {
+              "id": "606057",
+              "isRest": false,
+              "title": "abs workout"
+            },
+            {
+              "id": "000001",
+              "isRest": true,
+              "title": "rest"
             },
             {
               "id": "000001",
@@ -24,9 +49,39 @@
           "title": "Week 2",
           "workouts": [
             {
-              "id": "611297",
+              "id": "606952",
               "isRest": false,
-              "title": "chest"
+              "title": "Chest & Triceps"
+            },
+            {
+              "id": "606955",
+              "isRest": false,
+              "title": "Leg Workout"
+            },
+            {
+              "id": "606958",
+              "isRest": false,
+              "title": "Back & Biceps"
+            },
+            {
+              "id": "606961",
+              "isRest": false,
+              "title": "Shoulders"
+            },
+            {
+              "id": "606964",
+              "isRest": false,
+              "title": "abs workout"
+            },
+            {
+              "id": "000001",
+              "isRest": true,
+              "title": "rest"
+            },
+            {
+              "id": "000001",
+              "isRest": true,
+              "title": "rest"
             }
           ]
         },
@@ -35,9 +90,39 @@
           "title": "Week 3",
           "workouts": [
             {
-              "id": "611297",
+              "id": "610220",
               "isRest": false,
-              "title": "chest"
+              "title": "Chest"
+            },
+            {
+              "id": "610222",
+              "isRest": false,
+              "title": "Back"
+            },
+            {
+              "id": "610224",
+              "isRest": false,
+              "title": "Legs & ABS"
+            },
+            {
+              "id": "610223",
+              "isRest": false,
+              "title": "Arms"
+            },
+            {
+              "id": "000001",
+              "isRest": true,
+              "title": "rest"
+            },
+            {
+              "id": "610227",
+              "isRest": false,
+              "title": "full body"
+            },
+            {
+              "id": "000001",
+              "isRest": true,
+              "title": "rest"
             }
           ]
         },
@@ -48,12 +133,37 @@
             {
               "id": "611297",
               "isRest": false,
-              "title": "chest"
+              "title": "Chest"
             },
             {
               "id": "611300",
               "isRest": false,
               "title": "Back"
+            },
+            {
+              "id": "611303",
+              "isRest": false,
+              "title": "Legs & ABS"
+            },
+            {
+              "id": "611306",
+              "isRest": false,
+              "title": "Arms"
+            },
+            {
+              "id": "000001",
+              "isRest": true,
+              "title": "rest"
+            },
+            {
+              "id": "611310",
+              "isRest": false,
+              "title": "full body"
+            },
+            {
+              "id": "000001",
+              "isRest": true,
+              "title": "rest"
             }
           ]
         }
