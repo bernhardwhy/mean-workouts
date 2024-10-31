@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const {WorkoutLog, Program, Workout} = require('./models/program');
+const workoutLogsRoutes = require('./routes/workoutLogs');
+const { Program, Workout} = require('./models/program');
 
 const app = express();
 
@@ -27,18 +28,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.post('/api/workout-log', (req, res, next) => {
-    const workoutLog = new WorkoutLog({
-        date: req.body.date,
-        workoutId: req.body.programId,
-        weight: req.body.weight,
-    });
-    console.log(workoutLog);
-    workoutLog.save();
-    res.status(201).json({
-        message: 'Workout log added successfully!'
-    });
-})
+app.use('/api/workout-logs', workoutLogsRoutes);
+
 
 app.get('/api/programs', (req, res, next) => {
     Program.find()
@@ -60,14 +51,6 @@ app.get('/api/workouts', (req, res, next) => {
     });
 });
 
-app.get('/api/workout-logs', (req, res, next) => {
-    WorkoutLog.find()
-        .then(documents => {
-            res.status(200).json({
-                message: 'Workout LOGS fetched successfully!',
-                workoutLogs: documents
-            });
-        });
-});
+
 
 module.exports = app;

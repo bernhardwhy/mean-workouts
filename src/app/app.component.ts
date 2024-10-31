@@ -13,10 +13,4 @@ import { CenterContentComponent } from "./shared/UI/center-content/center-conten
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  enteredValue = signal<string>('');
-
-  onSubmit() {
-    console.log(this.enteredValue());
-  }
-}
+export class AppComponent {}
