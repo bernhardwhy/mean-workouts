@@ -1,20 +1,17 @@
-<p>Showing content  for program {{programId()}}</p>
+<div class="mt-10 ml-5 mr-5">
+@for (week of program()?.weeks; track week.id) {
+<div class="font-mono divide-y">
+  <p class="text-xl">{{ week.title }}</p>
+        @for (workout of week.workouts; track workout.id + $index) { @if
+        (!workout.isRest) {
+        <div class="p-6 shadow rounded m-3" [routerLink]="['/workouts/' + workout.id]">
+          {{ workout.title }}
+        </div>
+        } @else {
+        <div class="p-6 shadow rounded m-3"  disabled="true">{{ workout.title }}</div>
+        } }
+</div>
+}
 
-<mat-list role="list">
-    @for (week of program()?.weeks; track week.id) {
-        <p>{{ week.title }}</p>
-        <mat-selection-list>
-            @for (workout of week.workouts; track workout.id + $index) {
-                @if (!workout.isRest) {
-                    <mat-list-item [routerLink]="['/workouts/' + workout.id]"  role="listitem">{{ workout.title }}</mat-list-item>
-                } @else {
-                    <mat-list-item disabled="true" role="listitem">{{ workout.title }}</mat-list-item>
-                }
-            }
-            </mat-selection-list>
-        }
-    </mat-list>
-
-<button (click)="onAddWeightLog()" mat-stroked-button>
-    add weight to exercise
-</button>
+<button (click)="onAddWeightLog()">add weight to exercise</button>
+</div>

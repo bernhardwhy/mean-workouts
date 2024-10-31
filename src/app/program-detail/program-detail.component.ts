@@ -1,8 +1,5 @@
 import { Component, computed, inject, input, OnInit } from '@angular/core';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatListModule } from '@angular/material/list';
-
 import { ProgramService } from '../shared/services/program.service';
 import { WorkoutService } from '../shared/services/workout.service';
 import { RouterLink } from '@angular/router';
@@ -11,7 +8,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-program-detail',
   standalone: true,
-  imports: [MatButtonModule, MatListModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './program-detail.component.html',
   styleUrl: './program-detail.component.css'
 })
