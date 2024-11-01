@@ -3,10 +3,10 @@ import { inject, Injectable, signal } from '@angular/core';
 import { Workout } from '../program.model';
 import { tap } from 'rxjs';
 
-import {ENV} from '../env';
+import { environment } from '../../../environments/environment';
 
-const WORKOUTS_URL = ENV.DEV.WORKOUTS_URL;
-const WORKOUTLOGS_URL = ENV.DEV.WORKOUTLOGS_URL;
+const WORKOUTS_URL = environment.WORKOUTS_URL;
+const WORKOUTLOGS_URL = environment.WORKOUTLOGS_URL;
 
 @Injectable({
   providedIn: 'root'

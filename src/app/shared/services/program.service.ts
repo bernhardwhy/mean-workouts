@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Program } from '../program.model';
 import { tap } from 'rxjs';
 
-import {ENV} from '../env';
+import { environment } from '../../../environments/environment';
 
-const PROGRAM_URL = ENV.DEV.PROGRAMS_URL;
+const PROGRAM_URL = environment.PROGRAMS_URL;
 
 @Injectable({
   providedIn: 'root'
