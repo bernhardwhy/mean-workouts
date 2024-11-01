@@ -4,6 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { Program } from '../program.model';
 import { tap } from 'rxjs';
 
+import {ENV} from '../env';
+
+const PROGRAM_URL = ENV.DEV.PROGRAMS_URL;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +29,6 @@ export class ProgramService {
   }
 
   private fetchPrograms() {
-    return this.httpClient.get<{ message: string, programs: Program[] }>('http://localhost:3000/api/programs');
+    return this.httpClient.get<{ message: string, programs: Program[] }>(PROGRAM_URL);
   }
 }
