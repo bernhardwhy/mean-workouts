@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000/';
+const BASE_URL = 'https://mean-workout-backend.vercel.app/';
 
 export const environment = {
     production: true,
