@@ -5,6 +5,11 @@ export interface Program {
     title: string,
     weeks: Week[],
 }
+export interface Exercise {
+    _id: string,
+    title: string,
+    image: string,
+}
 
 export interface Workout {
     id: string,

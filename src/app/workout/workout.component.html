@@ -1,32 +1,6 @@
-<!-- <mat-selection-list>
-        @for (exercise of workout()?.exercises; track exercise) {
-            <mat-card appearance="outlined">
-                <mat-card-content>
-                    <p> WARM UP </p>
-                </mat-card-content>
-                <mat-card-content>
-                    @for (w of exercise.warmUp; track w.id + $index) {
-                        <mat-list-item  role="listitem">{{ w.title }}</mat-list-item>
-                        <mat-divider></mat-divider>
-                    }
-                </mat-card-content>
-            </mat-card>
-            <mat-card appearance="outlined">
-                <mat-card-content>
-                    <p> MAIN </p>
-                </mat-card-content>
-                <mat-card-content>
-                    @for (m of exercise.main; track m.id + $index) {
-                        <mat-list-item  role="listitem">{{ m.title }}</mat-list-item>
-                        <mat-divider></mat-divider>
-                    }
-                </mat-card-content>
-            </mat-card>
-        }
-    </mat-selection-list> -->
 <div class="mt-10 ml-5 mr-5">
-  <p class="font-mono text-l tracking wide">{{ workout()?.title }}</p>
-  @for (exercise of workout()?.exercises; track exercise) {
+  <p class="font-mono text-l tracking wide">{{ builtWorkout().title }}</p>
+  @for (exercise of builtWorkout().exercises; track exercise) {
     <p class="text-xl font-mono">Warm-up</p>
     @for (w of exercise.warmUp; track w.id + $index) {
       <div class="font-mono divide-y">

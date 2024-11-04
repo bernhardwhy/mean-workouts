@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { Workout } from '../program.model';
+import { Exercise, Workout } from '../program.model';
 import { tap } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 
 const WORKOUTS_URL = environment.WORKOUTS_URL;
 const WORKOUTLOGS_URL = environment.WORKOUTLOGS_URL;
+const EXERCISE_URL = environment.EXERCISE_URL;
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +16,30 @@ export class WorkoutService {
   private httpClient = inject(HttpClient);
   private workouts = signal<Workout[]>([]);
   allWorkouts = this.workouts.asReadonly();
+  private exercises = signal<Exercise[]>([]);
+  allExercises = this.exercises.asReadonly();
   private workoutLogs = signal<{programId: string, weight: number, date: string}[]>([]);
   allWorkoutLogs = this.workoutLogs.asReadonly();
 
   loadWorkouts() {
-    return this.fetchPrograms()
+    return this.fetchWorkouts()
       .pipe(
         tap({
           next: (postData) => {
-            console.log(postData);
+            console.log(postData, this.workouts);
             this.workouts.set(postData.workouts);
+          }
+        })
+      )
+  }
+
+  loadExercises() {
+    return this.fetchExercises()
+      .pipe(
+        tap({
+          next: (data) => {
+            console.log(data, );
+            this.exercises.set(data.exercises);
           }
         })
       )
@@ -51,11 +66,15 @@ export class WorkoutService {
       });
   }
 
-  private fetchPrograms() {
+  private fetchWorkouts() {
     return this.httpClient.get<{ message: string, workouts: Workout[] }>(WORKOUTS_URL);
   }
 
   private fetchWorkoutLogs() {
     return this.httpClient.get<{ message: string, workoutLogs: {programId: string, weight: number, date: string}[] }>(WORKOUTLOGS_URL);
+  }
+
+  private fetchExercises() {
+    return this.httpClient.get<{ message: string, exercises: {_id: string, title: string, image: string}[] }>(EXERCISE_URL);
   }
 }
