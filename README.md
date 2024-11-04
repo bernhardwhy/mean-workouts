@@ -39,12 +39,12 @@ https://cloud.mongodb.com/v2/6719fa9188a3032342123427#/overview?connectCluster=m
 
 
 to access data via CLI: 
-with terminal head to mongosh location (web/mongosh/bin)
+with terminal head to mongosh location (webprojekte/mongosh/bin)
 
 ./mongosh "mongodb+srv://mean-workout.pxedv.mongodb.net/" --apiVersion 1 --username bernhardwhy
 
 show collections
 db.<collection>.find()
 
-
+db.exercises.insertMany([{data}])
 
