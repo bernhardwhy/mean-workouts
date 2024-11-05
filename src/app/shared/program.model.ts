@@ -12,6 +12,7 @@ export interface Exercise {
 }
 
 export interface Workout {
+    _id: string,
     id: string,
     title: string,
     exercises: [

@@ -14,9 +14,7 @@ export class WorkoutComponent implements OnInit {
   workoutService = inject(WorkoutService);
   allWorkouts = this.workoutService.allWorkouts;
   allExercises = this.workoutService.allExercises;
-  workout = computed(() => {
-    return this.allWorkouts().find(w => w.id === this.workoutId());
-  });
+  workout = this.workoutService.workoutDetailReadOnly;
 
   builtWorkout = computed(() => {
     return this.buildWorkout();
@@ -26,6 +24,7 @@ export class WorkoutComponent implements OnInit {
   ngOnInit(): void {
     this.workoutService.loadWorkouts().subscribe();
     this.workoutService.loadExercises().subscribe();
+    this.workoutService.showDetailWorkout(this.workoutId()).subscribe();
   }
 
   buildWorkout() {

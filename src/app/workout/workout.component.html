@@ -1,5 +1,5 @@
 <div class="mt-10 ml-5 mr-5">
-  <p class="font-mono text-l tracking wide">{{ builtWorkout().title }}</p>
+  <p class="font-mono text-l tracking wide">{{  builtWorkout().title }}</p>
   @for (exercise of builtWorkout().exercises; track exercise) {
     <p class="text-xl font-mono">Warm-up</p>
     @for (w of exercise.warmUp; track w.id + $index) {
