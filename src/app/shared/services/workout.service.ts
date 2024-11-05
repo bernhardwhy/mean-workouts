@@ -37,11 +37,10 @@ export class WorkoutService {
   }
 
   showDetailWorkout(workoutId: string) {
-    return this.httpClient.get<{ message: string, workoutDetail: Workout }>('http://localhost:3000/api/workouts/' + workoutId)
+    return this.httpClient.get<{ message: string, workoutDetail: Workout }>(WORKOUTS_URL + workoutId)
     .pipe(
       tap({
         next: (data) => {
-          console.log("GET DETAIL", data.workoutDetail);
           this.workoutDetail.set(data.workoutDetail);
         }
       })
