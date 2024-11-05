@@ -48,3 +48,4 @@ db.<collection>.find()
 
 db.exercises.insertMany([{data}])
 
+
