@@ -20,6 +20,9 @@ export class WorkoutService {
   allExercises = this.exercises.asReadonly();
   private workoutLogs = signal<{programId: string, weight: number, date: string}[]>([]);
   allWorkoutLogs = this.workoutLogs.asReadonly();
+  private workoutDetail = signal<Workout | undefined>(undefined);
+  workoutDetailReadOnly = this.workoutDetail.asReadonly();
+  
 
   loadWorkouts() {
     return this.fetchWorkouts()
@@ -31,6 +34,18 @@ export class WorkoutService {
           }
         })
       )
+  }
+
+  showDetailWorkout(workoutId: string) {
+    return this.httpClient.get<{ message: string, workoutDetail: Workout }>('http://localhost:3000/api/workouts/' + workoutId)
+    .pipe(
+      tap({
+        next: (data) => {
+          console.log("GET DETAIL", data.workoutDetail);
+          this.workoutDetail.set(data.workoutDetail);
+        }
+      })
+    );
   }
 
   loadExercises() {

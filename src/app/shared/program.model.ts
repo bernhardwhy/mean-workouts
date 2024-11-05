@@ -1,5 +1,3 @@
-import mongoose, { Schema, Document } from 'mongoose';
-
 export interface Program {
     id: string,
     title: string,
@@ -12,6 +10,7 @@ export interface Exercise {
 }
 
 export interface Workout {
+    _id: string,
     id: string,
     title: string,
     exercises: [

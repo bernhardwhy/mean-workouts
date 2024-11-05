@@ -30,11 +30,4 @@ export class ProgramDetailComponent  implements OnInit {
     this.workoutService.loadWorkoutLogs().subscribe();
   }
 
-  onAddWeightLog() {
-    let date = new Date();
-    let dateString = date.toString();
-    this.workoutService.addWorkoutLog(this.programId(), 100, dateString);
-  }
-
-
 }
