@@ -1,11 +1,11 @@
 
-  <div class="grid gap-4 mt-10 mx-5">
+  <div class="grid gap-4 mt-10 mx-5" data-test="program-list">
     @for (program of allPrograms(); track program.id) {
     <div [routerLink]="['./' + program.id]">
       <div class="max-w-md mx-auto bg-white rounded-xl  outline outline-1 outline-slate-500 shadow-md overflow-hidden md:max-w-2xl hover:cursor-pointer">
         <div class="md:flex">
           <div class="p-8">
-            <p class="block mt-1 text-lg leading-tight font-medium text-black">{{program.title}}</p>
+            <p data-test="program-item" class="block mt-1 text-lg leading-tight font-medium text-black">{{program.title}}</p>
           </div>
         </div>
       </div>
