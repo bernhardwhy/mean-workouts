@@ -1,7 +1,7 @@
 <div class="mt-10 ml-5 mr-5">
 @for (week of program()?.weeks; track week.id) {
 <div class="font-mono divide-y">
-  <p class="text-xl">{{ week.title }}</p>
+  <p class="text-xl" data-test="week-title">{{ week.title }}</p>
         @for (workout of week.workouts; track workout.id + $index) { @if
         (!workout.isRest) {
         <div class="p-6 shadow rounded m-3" [routerLink]="['/workouts/' + workout.id]">
