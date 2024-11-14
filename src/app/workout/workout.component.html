@@ -1,8 +1,7 @@
 <div class="mt-10 ml-5 mr-5">
-  <p class="font-mono text-l tracking wide">{{ builtWorkout().title }}</p>
-  @for (exercise of builtWorkout().exercises; track exercise) {
+  <p class="font-mono text-l tracking wide">{{ workout()?.title }}</p>
   <p class="text-xl font-mono">Warm-up</p>
-  @for (w of exercise.warmUp; track w.id + $index) {
+  @for (w of workout()?.exercises?.warmUp; track w.id + $index) {
   <div class="font-mono divide-y">
     <div
       class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5"
@@ -30,7 +29,7 @@
   </div>
   }
   <p class="text-xl font-mono">Workout</p>
-  @for (main of exercise.main; track main.id + $index) {
+  @for (main of workout()?.exercises?.main; track main.id + $index) {
   <div class="font-mono divide-y">
     <div
       class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5"
@@ -67,7 +66,7 @@
       </div>
     </div>
   </div>
-  } }
+  } 
 </div>
 
 @if (showWeightDialog()) {

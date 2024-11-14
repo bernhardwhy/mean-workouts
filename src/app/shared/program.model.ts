@@ -13,7 +13,7 @@ export interface Workout {
     _id: string,
     id: string,
     title: string,
-    exercises: [
+    exercises: 
         {
             warmUp: [
                 {
@@ -38,7 +38,6 @@ export interface Workout {
                 }
             ]
         }
-    ]
 }
 
 
